@@ -1,0 +1,13 @@
+# MATLAB
+*.asv
+*.slxc
+*.mdl
+*.mex*
+*.mex*
+*.log
+cache/
+data/
+
+# Simulink codegen artifacts
+*_grt_rtw/
+hdlsrc/
