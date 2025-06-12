@@ -1,0 +1,14 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install MATLAB (Command-Line)
+        run: |
+          wget -qO- https://ssd.mathworks.com/supportfiles/downloads/R2025a/installers/glnxa64.zip > matlab.zip
+          unzip matlab.zip
+      - name: Run MATLAB unit tests & code analyzer
+        run: |
+          matlab -batch "addpath('scripts'); results = runtests('scripts'); disp(results);"
